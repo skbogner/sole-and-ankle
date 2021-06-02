@@ -35,6 +35,7 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
+          <Tag variant={variant}>{variant === 'on-sale' ? 'Sale' : 'Just released!'}</Tag>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
@@ -55,13 +56,16 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+flex: 1;
+max-width: 400px`;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+width: 100%`;
 
 const Row = styled.div`
   font-size: 1rem;
@@ -77,6 +81,16 @@ const Price = styled.span``;
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
 `;
+
+const Tag = styled.span`
+  position: absolute;
+  top: 16px;
+  right: -8px;
+  color: ${COLORS.white};
+  background-color: ${p => p.variant === 'on-sale' ?'hotpink' :'blue'};
+  padding: 4px 8px;
+  visibility: ${p => p.variant === 'default' ? 'hidden' : 'visible'}
+`
 
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
