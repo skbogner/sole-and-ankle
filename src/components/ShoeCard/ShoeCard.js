@@ -57,8 +57,7 @@ const Link = styled.a`
 `;
 
 const Wrapper = styled.article`
-flex: 1;
-max-width: 400px`;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
